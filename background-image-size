@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CSS background-size demo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .intro {
+      max-width: 750px;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .example {
+      background: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .example h2 {
+      margin-top: 0;
+    }
+
+    /*
+     * All the demo boxes use EXACTLY the same image
+     * and have exactly the same dimensions.
+     */
+    .image {
+      width: 100%;
+      height: 250px;
+
+      background-image:
+        url("https://picsum.photos/id/1015/800/600");
+
+      background-repeat: no-repeat;
+      background-position: center;
+
+      /*
+       * Grey makes any uncovered area obvious.
+       */
+      background-color: #ccc;
+
+      border: 3px solid #222;
+    }
+
+
+    /* -------------------------------
+       1. COVER
+       ------------------------------- */
+
+    .cover {
+      background-size: cover;
+    }
+
+
+    /* -------------------------------
+       2. CONTAIN
+       ------------------------------- */
+
+    .contain {
+      background-size: contain;
+    }
+
+
+    /* -------------------------------
+       3. AUTO
+       ------------------------------- */
+
+    .auto {
+      background-size: auto;
+    }
+
+
+    /* -------------------------------
+       4. WIDTH = 100%
+       ------------------------------- */
+
+    .width {
+      background-size: 100% auto;
+    }
+
+
+    /* -------------------------------
+       5. HEIGHT = 100%
+       ------------------------------- */
+
+    .height {
+      background-size: auto 100%;
+    }
+
+
+    /* -------------------------------
+       6. STRETCH
+       ------------------------------- */
+
+    .stretch {
+      background-size: 100% 100%;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 5px;
+    }
+
+    .yes {
+      font-weight: bold;
+    }
+
+    .no {
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
+      .examples {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main>
+
+  <h1>CSS background-size</h1>
+
+  <div class="intro">
+    <p>
+      Every example below uses the <strong>same image</strong>
+      inside the <strong>same size container</strong>.
+    </p>
+
+    <p>
+      This demonstrates what happens when
+      <code>background-size</code> is changed.
+    </p>
+  </div>
+
+
+  <div class="examples">
+
+
+    <!-- COVER -->
+
+    <section class="example">
+
+      <h2>cover</h2>
+
+      <div class="image cover"></div>
+
+      <p>
+        <code>background-size: cover;</code>
+      </p>
+
+      <p>
+        <span class="yes">✓ Preserves proportions</span><br>
+        ✓ Fills the entire container<br>
+        ✗ Parts of the image may be cropped
+      </p>
+
+    </section>
+
+
+    <!-- CONTAIN -->
+
+    <section class="example">
+
+      <h2>contain</h2>
+
+      <div class="image contain"></div>
+
+      <p>
+        <code>background-size: contain;</code>
+      </p>
+
+      <p>
+        <span class="yes">✓ Preserves proportions</span><br>
+        ✓ Entire image is visible<br>
+        ✗ May leave empty space
+      </p>
+
+    </section>
+
+
+    <!-- AUTO -->
+
+    <section class="example">
+
+      <h2>auto</h2>
+
+      <div class="image auto"></div>
+
+      <p>
+        <code>background-size: auto;</code>
+      </p>
+
+      <p>
+        <span class="yes">✓ Preserves proportions</span><br>
+        ✓ Uses the image's intrinsic dimensions<br>
+        ✗ May overflow/crop within the container
+      </p>
+
+    </section>
+
+
+    <!-- 100% AUTO -->
+
+    <section class="example">
+
+      <h2>100% auto</h2>
+
+      <div class="image width"></div>
+
+      <p>
+        <code>background-size: 100% auto;</code>
+      </p>
+
+      <p>
+        <span class="yes">✓ Preserves proportions</span><br>
+        ✓ Image always matches container width<br>
+        ✗ Height may not match the container
+      </p>
+
+    </section>
+
+
+    <!-- AUTO 100% -->
+
+    <section class="example">
+
+      <h2>auto 100%</h2>
+
+      <div class="image height"></div>
+
+      <p>
+        <code>background-size: auto 100%;</code>
+      </p>
+
+      <p>
+        <span class="yes">✓ Preserves proportions</span><br>
+        ✓ Image always matches container height<br>
+        ✗ Width may exceed the container
+      </p>
+
+    </section>
+
+
+    <!-- STRETCH -->
+
+    <section class="example">
+
+      <h2>100% 100%</h2>
+
+      <div class="image stretch"></div>
+
+      <p>
+        <code>background-size: 100% 100%;</code>
+      </p>
+
+      <p>
+        <span class="no">✗ Does NOT preserve proportions</span><br>
+        ✓ Fills the entire container<br>
+        ✗ Image is stretched or squashed
+      </p>
+
+    </section>
+
+
+  </div>
+
+</main>
+
+</body>
+</html>
