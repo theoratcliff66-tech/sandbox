@@ -49,8 +49,10 @@
   <h1>Vimeo thumbnail test</h1>
 
   <p>
-    This gets the thumbnail from Vimeo using oEmbed,
-    without loading the Vimeo video player.
+    This gets the thumbnail from Vimeo using oEmbed
+    without loading the Vimeo video player.<br><br>
+
+    <a href="https://vimeo.com/286898202">https://vimeo.com/286898202</a>
   </p>
 
   <div class="video-placeholder">
@@ -69,7 +71,7 @@
 
   <script>
 
-    // Change this to the Vimeo video you want to test
+    // Vimeo video id
     const vimeoUrl = 'https://vimeo.com/286898202';
 
 
@@ -79,7 +81,7 @@
       encodeURIComponent(vimeoUrl);
 
 
-    // Ask Vimeo for information about the video
+    // Ask Vimeo for info
     fetch(oEmbedUrl)
 
       .then(response => {
@@ -97,7 +99,7 @@
 
       .then(data => {
 
-        // Vimeo gives us the thumbnail URL
+        // Vimeo gives the thumbnail URL
         console.log(
           'Vimeo thumbnail URL:',
           data.thumbnail_url
