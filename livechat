@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Embed Test</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 40px auto; max-width: 800px; padding: 0 16px; }
+    </style>
+  </head>
+  <body>
+    <h1>Airtable Embed Test</h1>
+
+   <iframe class="airtable-embed" src="https://airtable.com/embed/appm9PjN1gvhIoE9G/shrgX4Ix19lr6jGoA" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+  </body>
+</html>
